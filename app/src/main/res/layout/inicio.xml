@@ -45,7 +45,20 @@
             android:id="@+id/abrir_movimentacao"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/movimentacao" />
+            android:text="@string/nova_movimentacao" />
+        <TextView
+            android:id="@+id/ultimo_rascunho"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:accessibilityLiveRegion="polite"
+            android:visibility="gone" />
+        <Button
+            android:id="@+id/editar_rascunho"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/editar_rascunho"
+            android:visibility="gone" />
         <Button
             android:id="@+id/abrir_historico"
             android:layout_width="match_parent"

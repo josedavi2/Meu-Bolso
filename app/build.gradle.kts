@@ -13,6 +13,7 @@ android {
         versionCode = 1
         versionName = "0.1"
     }
+    testOptions.unitTests.isIncludeAndroidResources = true
     buildFeatures { viewBinding = true }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -35,4 +36,5 @@ dependencies {
     implementation("androidx.work:work-runtime-ktx:2.9.1")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
     testImplementation("junit:junit:4.13.2")
+    testImplementation("org.robolectric:robolectric:4.14.1")
 }
