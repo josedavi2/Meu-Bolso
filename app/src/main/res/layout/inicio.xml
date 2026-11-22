@@ -1,0 +1,60 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_inicio"
+            android:textSize="22sp" />
+        <Button
+            android:id="@+id/abrir_splash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/splash" />
+        <Button
+            android:id="@+id/abrir_login"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/login" />
+        <Button
+            android:id="@+id/abrir_cadastro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cadastro" />
+        <Button
+            android:id="@+id/abrir_painel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/painel" />
+        <Button
+            android:id="@+id/abrir_contas_fixas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/contas_fixas" />
+        <Button
+            android:id="@+id/abrir_detalhes_conta"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/detalhes_conta" />
+        <Button
+            android:id="@+id/abrir_movimentacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/movimentacao" />
+        <Button
+            android:id="@+id/abrir_historico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/historico" />
+        <Button
+            android:id="@+id/abrir_relatorios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/relatorios" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Meu Bolso</string>
+    <string name="titulo_inicio">Telas em desenvolvimento</string>
+    <string name="splash">Abertura</string>
+    <string name="login">Login</string>
+    <string name="cadastro">Cadastro</string>
+    <string name="painel">Dashboard</string>
+    <string name="contas_fixas">Contas fixas</string>
+    <string name="detalhes_conta">Detalhes da conta</string>
+    <string name="movimentacao">Adicionar ou editar movimentação</string>
+    <string name="historico">Histórico</string>
+    <string name="relatorios">Relatórios</string>
+</resources>

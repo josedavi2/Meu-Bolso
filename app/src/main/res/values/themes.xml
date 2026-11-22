@@ -1,0 +1,5 @@
+<resources>
+    <style name="Theme.MeuBolso" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">#9EBAA0</item>
+    </style>
+</resources>
