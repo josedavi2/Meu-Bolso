@@ -1,6 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
-    <application android:label="@string/app_name" android:theme="@style/Theme.MeuBolso" android:allowBackup="false">
-        <activity android:name=".ui.acesso.SplashActivity" android:exported="false" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <application android:name=".dados.MeuBolso" android:label="@string/app_name" android:theme="@style/Theme.MeuBolso" android:allowBackup="false">
+        <activity android:name=".InicioActivity" android:exported="false" />
         <activity android:name=".ui.acesso.LoginActivity" android:exported="false" />
         <activity android:name=".ui.acesso.CadastroActivity" android:exported="false" />
         <activity android:name=".ui.painel.PainelActivity" android:exported="false" />
@@ -9,7 +10,7 @@
         <activity android:name=".ui.movimentacoes.MovimentacaoActivity" android:exported="false" />
         <activity android:name=".ui.historico.HistoricoActivity" android:exported="false" />
         <activity android:name=".ui.relatorios.RelatoriosActivity" android:exported="false" />
-        <activity android:name=".InicioActivity" android:exported="true">
+        <activity android:name=".ui.acesso.SplashActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

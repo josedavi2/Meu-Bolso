@@ -1,0 +1,16 @@
+<resources>
+    <string name="nova_movimentacao">Nova movimentação</string>
+    <string name="editar_movimentacao">Editar movimentação</string>
+    <string name="rotulo_descricao">Descrição</string>
+    <string name="rotulo_valor">Valor em reais</string>
+    <string name="rotulo_tipo">Tipo</string>
+    <string name="receita">Receita</string>
+    <string name="despesa">Despesa</string>
+    <string name="rotulo_categoria">Categoria</string>
+    <string name="rotulo_data">Data</string>
+    <string name="confirmar_rascunho">Salvar movimentação</string>
+    <string name="editar_rascunho">Editar último rascunho</string>
+    <string name="resumo_rascunho">Último rascunho\n%1$s · %2$s\n%3$s · %4$s · %5$s</string>
+    <string name="erro_descricao">Informe uma descrição.</string>
+    <string name="erro_valor">Informe um valor positivo, como 25,90.</string>
+</resources>

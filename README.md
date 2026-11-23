@@ -1,18 +1,21 @@
 # Meu Bolso
 
-## Rodar no Android Studio
+Aplicativo Android de controle financeiro pessoal para estudantes. Cada perfil mantém suas movimentações e contas fixas no aparelho.
 
-Extraia o ZIP e abra a pasta **MeuBolso**, onde está o arquivo `settings.gradle.kts`. Use o JDK 17, o Android SDK Platform 35 e o Build-Tools 34.0.0. Após o Gradle Sync, execute o módulo **app** em um emulador ou aparelho com Android 8.0 (API 26) ou superior.
+## Executar
 
-A primeira tela é um menu temporário de desenvolvimento. Toque no nome de uma tela para abrir o layout vazio e use **Voltar** para retornar. Cada integrante pode abrir sua tela mesmo enquanto o outro desenvolve o login ou o banco. Ao integrar a Splash, a dupla pode torná-la a entrada do aplicativo no manifesto.
+Abra a pasta que contém `settings.gradle.kts` no Android Studio. Configure JDK 17, Android SDK Platform 35 e Build Tools 34.0.0. Execute o módulo `app` em um aparelho ou emulador Android 8.0 ou superior. Para gerar o APK de depuração e rodar os testes no Windows, execute `gradlew.bat :app:assembleDebug :app:testDebugUnitTest`.
 
-## Divisão do plano de projeto
+## Fluxo do aplicativo
 
-| Responsável | Tarefas | Onde programar |
-| --- | --- | --- |
-| Vitória Luclécia (líder) | Organização e entrega do documento, Splash, login, cadastro, dashboard, saldo, cofrinho, telas de contas fixas e regras de status | Pacotes `ui/acesso`, `ui/painel` e `ui/contas` e seus layouts XML |
-| José Davi | Cadastro e edição de movimentações, categorias, histórico, filtros, relatórios e gráficos | Pacotes `ui/movimentacoes`, `ui/historico` e `ui/relatorios` e seus layouts XML |
-| Ambos | Modelo do banco na primeira semana (entidades e DAOs), confirmação de pagamento, notificações, testes e apresentação | `dados/entidades`, `dados/dao`, `notificacoes` e `app/src/test` |
+Crie um perfil, acesse o painel e use **+ Movimentação** para registrar receitas e despesas. O histórico permite filtrar, editar e excluir lançamentos. O painel apresenta os totais do período selecionado e o cofrinho do mês. Os relatórios mostram as despesas por categoria e a comparação mensal.
 
-O código Kotlin está em `app/src/main/java/br/edu/unipe/meubolso/` e os layouts estão em `app/src/main/res/layout/`. Cada Activity indica seu XML. Room, RecyclerView, Material Components, MPAndroidChart, WorkManager e JUnit já estão declarados no Gradle.
+Em **Contas fixas**, selecione o mês e cadastre a descrição, o valor, a categoria e o dia do vencimento. Abra a conta para editar a recorrência, consultar as parcelas, registrar a data de pagamento ou desfazer a confirmação.
 
+## Equipe e planejamento
+
+- Vitória Luclécia — planejamento, Splash, acesso local, painel, cofrinho e contas fixas.
+- José Davi — formulário de movimentações, categorias, histórico, filtros, relatórios e gráficos.
+- Responsabilidades compartilhadas — dados locais, pagamentos, notificações, testes e apresentação. Os lembretes diários continuam pendentes.
+
+[Plano de projeto da equipe](docs/plano-de-projeto.pdf)

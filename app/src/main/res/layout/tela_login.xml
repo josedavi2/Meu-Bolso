@@ -1,5 +1,9 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <!-- Vitória implementa o layout de login aqui. -->
-</FrameLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#F7FAF7" android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:text="Entrar" android:textColor="#264B38" android:textSize="30sp" android:textStyle="bold" />
+        <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/email" android:hint="E-mail" android:inputType="textEmailAddress" />
+        <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/senha" android:hint="Senha" android:inputType="textPassword" />
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/entrar" android:text="Entrar" android:textAllCaps="false" />
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/cadastro" android:text="Criar perfil" android:textAllCaps="false" />
+    </LinearLayout>
+</ScrollView>

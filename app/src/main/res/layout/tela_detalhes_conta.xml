@@ -1,5 +1,15 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <!-- Vitória implementa o layout de detalhes da conta aqui. -->
-</FrameLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#F7FAF7" android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:text="Detalhes da conta" android:textColor="#264B38" android:textSize="30sp" android:textStyle="bold" />
+        <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/descricao" android:hint="Descrição" android:inputType="textCapSentences" />
+        <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/valor" android:hint="Valor previsto (R$)" android:inputType="numberDecimal" />
+        <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/dia" android:hint="Dia do vencimento" android:inputType="number" />
+        <Spinner android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/categoria" android:contentDescription="Categoria" />
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/salvar" android:text="Salvar conta" android:textAllCaps="false" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/situacao" android:textSize="18sp" android:textColor="#243A2A" />
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/pagar" android:text="Já paguei" android:textAllCaps="false" />
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/pendente" android:text="Ainda não paguei" android:textAllCaps="false" />
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/desfazer" android:text="Desfazer pagamento" android:textAllCaps="false" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/parcelas" android:textSize="18sp" android:textColor="#243A2A" />
+    </LinearLayout>
+</ScrollView>

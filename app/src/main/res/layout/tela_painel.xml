@@ -1,5 +1,19 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <!-- Vitória implementa o layout de dashboard aqui. -->
-</FrameLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#F7FAF7" android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:text="Meu Bolso" android:textColor="#264B38" android:textSize="30sp" android:textStyle="bold" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/periodo" android:textSize="18sp" android:textColor="#243A2A" />
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/anterior" android:text="Período anterior" android:textAllCaps="false" />
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/seguinte" android:text="Próximo período" android:textAllCaps="false" />
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/alternar" android:text="Alternar mês e ano" android:textAllCaps="false" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/totais" android:textSize="18sp" android:textColor="#243A2A" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/cofrinho" android:textSize="18sp" android:textColor="#243A2A" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/vencimentos" android:textSize="18sp" android:textColor="#243A2A" />
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/nova" android:text="+ Movimentação" android:textAllCaps="false" />
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/historico" android:text="Histórico" android:textAllCaps="false" />
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/relatorios" android:text="Relatórios" android:textAllCaps="false" />
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/contas" android:text="Contas fixas" android:textAllCaps="false" />
+        <Button android:id="@+id/lembretes" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Ativar lembretes de vencimento" android:textAllCaps="false" />
+        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/sair" android:text="Sair" android:textAllCaps="false" />
+    </LinearLayout>
+</ScrollView>

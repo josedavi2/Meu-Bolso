@@ -1,5 +1,39 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <!-- José Davi implementa o layout de adicionar ou editar movimentação aqui. -->
-</FrameLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:fillViewport="true">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+        <TextView android:id="@+id/titulo" android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="28sp"
+            android:textStyle="bold" android:layout_marginBottom="16dp" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/campo_descricao" android:layout_width="match_parent" android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/rotulo_descricao" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/descricao" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="textCapSentences" android:singleLine="true" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/campo_valor" android:layout_width="match_parent" android:layout_height="wrap_content"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:hint="@string/rotulo_valor" android:layout_marginBottom="8dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/valor" android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:inputType="numberDecimal" android:singleLine="true" android:digits="0123456789.,"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/rotulo_tipo" android:labelFor="@id/tipo" />
+        <RadioGroup android:id="@+id/tipo" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:orientation="horizontal" android:checkedButton="@id/despesa">
+            <RadioButton android:id="@+id/despesa" android:layout_width="wrap_content"
+                android:layout_height="48dp" android:text="@string/despesa" />
+            <RadioButton android:id="@+id/receita" android:layout_width="wrap_content"
+                android:layout_height="48dp" android:text="@string/receita" />
+        </RadioGroup>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/rotulo_categoria" android:labelFor="@id/categoria" />
+        <Spinner android:id="@+id/categoria" android:layout_width="match_parent" android:layout_height="48dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/rotulo_data" android:labelFor="@id/data" />
+        <Button android:id="@+id/data" android:layout_width="match_parent" android:layout_height="wrap_content" style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+        <Button android:id="@+id/confirmar" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp"
+            android:text="@string/confirmar_rascunho" android:textAllCaps="false" />
+        <Button android:id="@+id/cancelar" android:layout_width="match_parent" android:layout_height="wrap_content" style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:text="@android:string/cancel" android:textAllCaps="false" />
+    </LinearLayout>
+</ScrollView>
