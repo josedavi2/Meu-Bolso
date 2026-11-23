@@ -90,6 +90,9 @@ abstract class Banco : RoomDatabase() { abstract fun financas(): Financas }
 class MeuBolso : Application() {
     override fun onCreate() {
         super.onCreate()
+        val modo = getSharedPreferences("aparencia", MODE_PRIVATE).getInt("modo",
+            androidx.appcompat.app.AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
+        androidx.appcompat.app.AppCompatDelegate.setDefaultNightMode(modo)
         app = this
     }
     val banco by lazy {

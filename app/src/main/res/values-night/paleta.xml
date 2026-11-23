@@ -1,0 +1,11 @@
+<resources>
+    <color name="mb_bg">#101512</color>
+    <color name="mb_paper">#1D2520</color>
+    <color name="mb_line">#354139</color>
+    <color name="mb_ink">#F1F6F2</color>
+    <color name="mb_muted">#BDD0C1</color>
+    <color name="mb_action">#80E8B5</color>
+    <color name="mb_circle">#2B3930</color>
+    <color name="mb_on_action">#073825</color>
+    <color name="mb_header">#075638</color>
+</resources>

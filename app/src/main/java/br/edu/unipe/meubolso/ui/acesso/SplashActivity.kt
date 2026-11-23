@@ -11,9 +11,13 @@ import kotlinx.coroutines.*
 class SplashActivity : AppCompatActivity(R.layout.tela_splash) {
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
-        findViewById<android.widget.TextView>(R.id.logo).setCompoundDrawablesWithIntrinsicBounds(0,R.drawable.cofrinho_cheio,0,0)
+        val intro = findViewById<android.view.View>(R.id.intro)
+        if (android.animation.ValueAnimator.areAnimatorsEnabled()) {
+            intro.alpha = 0.25f
+            intro.animate().alpha(1f).setDuration(350).start()
+        }
         lifecycleScope.launch {
-            delay(600)
+            delay(900)
             val destino = if (MeuBolso.app.perfil.isEmpty()) LoginActivity::class.java else PainelActivity::class.java
             startActivity(Intent(this@SplashActivity, destino))
             finish()

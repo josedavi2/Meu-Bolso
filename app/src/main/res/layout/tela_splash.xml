@@ -1,6 +1,4 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#F7FAF7" android:fillViewport="true">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:text="Meu Bolso" android:textColor="#264B38" android:textSize="30sp" android:textStyle="bold" />
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/logo" android:textSize="18sp" android:textColor="#243A2A" />
-    </LinearLayout>
-</ScrollView>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:gravity="center" android:background="@color/mb_header" android:id="@+id/intro">
+  <ImageView android:layout_width="112dp" android:layout_height="112dp" android:src="@mipmap/ic_meubolso" android:importantForAccessibility="no" />
+  <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Meu Bolso" android:textSize="34sp" android:gravity="center" android:textColor="#FFFFFF" android:textStyle="bold" android:layout_marginTop="10dp" />
+</LinearLayout>

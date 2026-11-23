@@ -7,7 +7,9 @@ import android.os.Build
 import androidx.core.view.isVisible
 import androidx.activity.result.contract.ActivityResultContracts
 import br.edu.unipe.meubolso.notificacoes.Lembretes
+import androidx.appcompat.app.AppCompatDelegate
 import android.content.Intent
+import br.edu.unipe.meubolso.ui.comum.configurarAbas
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import br.edu.unipe.meubolso.R
@@ -50,6 +52,18 @@ class PainelActivity : AppCompatActivity() {
         anual = state?.getBoolean("anual") == true
         tela = TelaPainelBinding.inflate(layoutInflater)
         setContentView(tela.root)
+        configurarAbas(br.edu.unipe.meubolso.R.id.aba_inicio)
+        tela.tema.setOnClickListener {
+            val preferencias = getSharedPreferences("aparencia", MODE_PRIVATE)
+            val modos = listOf(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM, AppCompatDelegate.MODE_NIGHT_NO, AppCompatDelegate.MODE_NIGHT_YES)
+            val atual = preferencias.getInt("modo", modos.first())
+            androidx.appcompat.app.AlertDialog.Builder(this).setTitle("Aparência")
+                .setSingleChoiceItems(arrayOf("Seguir o sistema", "Claro", "Escuro"), modos.indexOf(atual)) { janela, i ->
+                    janela.dismiss()
+                    preferencias.edit().putInt("modo", modos[i]).apply()
+                    AppCompatDelegate.setDefaultNightMode(modos[i])
+                }.show()
+        }
         Lembretes.agendar(this)
         tela.lembretes.setOnClickListener {
             val prefs = getSharedPreferences("avisos", MODE_PRIVATE)
@@ -102,7 +116,11 @@ class PainelActivity : AppCompatActivity() {
         }.sortedBy { it.second.vencimento }
         val previsto = totais.saldo - pendencias.sumOf { it.second.valor.toBigInteger() }
         tela.periodo.text = if (anual) mes.year.toString() else mes.format(DateTimeFormatter.ofPattern("MMMM 'de' uuuu", brasil))
-        tela.totais.text = "Saldo   "+moeda(totais.saldo)+"\nReceitas   "+moeda(totais.receitas)+"\nDespesas pagas   "+moeda(totais.despesas)+"\nSaldo previsto   "+moeda(previsto)
+        tela.totais.text = moeda(totais.saldo)
+        tela.previsto.text = "Previsto   " + moeda(previsto)
+        tela.receitas.text = moeda(totais.receitas)
+        tela.despesas.text = moeda(totais.despesas)
+        tela.alternar.text = if (anual) "Ver resumo mensal" else "Ver resumo anual"
         val mensal = ResumoFinanceiro.calcular(movimentos, mes.year, mes.monthValue).totais
         val faixa = Cofrinho.avaliar(mensal.receitas, mensal.saldo)
         val percentual = if (mensal.receitas.signum() > 0) (mensal.saldo * 100.toBigInteger()).toBigDecimal().divide(mensal.receitas.toBigDecimal(), 1, RoundingMode.HALF_UP).toPlainString().replace('.', ',')+"% restantes · " else ""

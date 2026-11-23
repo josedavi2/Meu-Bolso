@@ -1,0 +1,5 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/aba_inicio" android:title="Início" android:icon="@drawable/atalho_inicio"/>
+    <item android:id="@+id/aba_historico" android:title="Histórico" android:icon="@drawable/atalho_historico"/>
+    <item android:id="@+id/aba_relatorios" android:title="Relatórios" android:icon="@drawable/atalho_relatorios"/>
+</menu>

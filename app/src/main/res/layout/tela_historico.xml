@@ -1,15 +1,20 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="16dp">
-    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Histórico" android:textSize="26sp" android:textStyle="bold" />
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-        <Spinner android:id="@+id/tipo" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:contentDescription="Filtrar por tipo"/>
-        <Spinner android:id="@+id/categoria" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:contentDescription="Filtrar por categoria"/>
-    </LinearLayout>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-        <Spinner android:id="@+id/mes" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:contentDescription="Filtrar por mes"/>
-        <Spinner android:id="@+id/ano" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:contentDescription="Filtrar por ano"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="0dp" android:orientation="vertical" android:padding="18dp" android:background="@color/mb_bg" android:layout_weight="1">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Histórico" android:textSize="28sp" android:textStyle="bold" android:textColor="@color/mb_ink" android:layout_marginBottom="16dp" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bolso_cartao" android:padding="16dp" android:layout_marginBottom="12dp">
+      <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="16sp" android:textColor="@color/mb_ink" android:text="Filtros" />
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <Spinner android:id="@+id/tipo" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:contentDescription="Filtrar por tipo" />
+        <Spinner android:id="@+id/categoria" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:contentDescription="Filtrar por categoria" />
+      </LinearLayout>
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <Spinner android:id="@+id/mes" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:contentDescription="Filtrar por mes" />
+        <Spinner android:id="@+id/ano" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:contentDescription="Filtrar por ano" />
+      </LinearLayout>
     </LinearLayout>
     <TextView android:id="@+id/vazio" android:layout_width="match_parent" android:layout_height="wrap_content" />
     <androidx.recyclerview.widget.RecyclerView android:id="@+id/lista" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
     <Button android:id="@+id/nova" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/nova_movimentacao" />
+  </LinearLayout>
+  <com.google.android.material.bottomnavigation.BottomNavigationView android:id="@+id/abas" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/mb_paper" app:menu="@menu/abas_principais" app:labelVisibilityMode="labeled" />
 </LinearLayout>
