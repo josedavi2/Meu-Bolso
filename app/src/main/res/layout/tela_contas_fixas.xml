@@ -1,10 +1,14 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#F7FAF7" android:fillViewport="true">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:text="Contas fixas" android:textColor="#264B38" android:textSize="30sp" android:textStyle="bold" />
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/periodo" android:textSize="18sp" android:textColor="#243A2A" />
-        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/anterior" android:text="Mês anterior" android:textAllCaps="false" />
-        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/seguinte" android:text="Próximo mês" android:textAllCaps="false" />
-        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/nova" android:text="Cadastrar conta" android:textAllCaps="false" />
-        <androidx.recyclerview.widget.RecyclerView android:id="@+id/lista" android:layout_width="match_parent" android:layout_height="wrap_content" />
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/mb_bg" android:fillViewport="true">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp" android:text="Contas fixas" android:textColor="@color/mb_ink" android:textSize="28sp" android:textStyle="bold" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+      <Button android:layout_width="52dp" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/anterior" android:text="‹" android:textAllCaps="false" style="@style/Widget.MaterialComponents.Button.TextButton" android:textColor="@color/mb_action" android:textSize="24sp" android:contentDescription="Mês anterior" android:padding="0dp" />
+      <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/periodo" android:textSize="18sp" android:textColor="@color/mb_ink" android:layout_weight="1" android:gravity="center" android:textStyle="bold" />
+      <Button android:layout_width="52dp" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/seguinte" android:text="›" android:textAllCaps="false" style="@style/Widget.MaterialComponents.Button.TextButton" android:textColor="@color/mb_action" android:textSize="24sp" android:contentDescription="Próximo mês" android:padding="0dp" />
     </LinearLayout>
+    <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/nova" android:text="Cadastrar conta" android:textAllCaps="false" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bolso_cartao" android:padding="16dp" android:layout_marginBottom="12dp">
+      <androidx.recyclerview.widget.RecyclerView android:id="@+id/lista" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    </LinearLayout>
+  </LinearLayout>
 </ScrollView>

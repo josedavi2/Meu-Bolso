@@ -1,5 +1,19 @@
 <resources>
-    <style name="Theme.MeuBolso" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">#9EBAA0</item>
+    <style name="Theme.MeuBolso" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/mb_action</item>
+        <item name="colorPrimaryVariant">@color/mb_header</item>
+        <item name="colorSecondary">@color/mb_action</item>
+        <item name="colorOnPrimary">@color/mb_on_action</item>
+        <item name="android:windowBackground">@color/mb_bg</item>
+        <item name="android:statusBarColor">@color/mb_header</item>
+        <item name="android:navigationBarColor">@color/mb_header</item>
+        <item name="colorSurface">@color/mb_paper</item>
+        <item name="colorOnSurface">@color/mb_ink</item>
+        <item name="materialButtonStyle">@style/BotaoBolso</item>
+    </style>
+    <style name="BotaoBolso" parent="Widget.MaterialComponents.Button">
+        <item name="cornerRadius">12dp</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:minHeight">48dp</item>
     </style>
 </resources>

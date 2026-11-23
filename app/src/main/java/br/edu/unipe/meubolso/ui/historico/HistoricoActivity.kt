@@ -1,5 +1,6 @@
 package br.edu.unipe.meubolso.ui.historico
 
+import br.edu.unipe.meubolso.ui.comum.configurarAbas
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -39,6 +40,7 @@ class HistoricoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         tela = TelaHistoricoBinding.inflate(layoutInflater)
         setContentView(tela.root)
+        configurarAbas(br.edu.unipe.meubolso.R.id.aba_historico)
         editando = savedInstanceState?.getString("editando")
         tela.lista.layoutManager = LinearLayoutManager(this)
         tela.lista.adapter = lista

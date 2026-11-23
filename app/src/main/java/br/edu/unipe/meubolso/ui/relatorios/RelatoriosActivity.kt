@@ -1,6 +1,7 @@
 package br.edu.unipe.meubolso.ui.relatorios
 
 import android.graphics.Color
+import br.edu.unipe.meubolso.ui.comum.configurarAbas
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -31,6 +32,13 @@ class RelatoriosActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         tela = TelaRelatoriosBinding.inflate(layoutInflater)
         setContentView(tela.root)
+        configurarAbas(br.edu.unipe.meubolso.R.id.aba_relatorios)
+        val tinta = getColor(br.edu.unipe.meubolso.R.color.mb_ink)
+        tela.pizza.legend.textColor = tinta
+        tela.pizza.setHoleColor(getColor(br.edu.unipe.meubolso.R.color.mb_paper))
+        tela.barras.legend.textColor = tinta
+        tela.barras.xAxis.textColor = tinta
+        tela.barras.axisLeft.textColor = tinta
         val hoje = LocalDate.now()
         anos = (HistoricoSessao.atual.itens.map { it.dados.data.year } + hoje.year).distinct().sortedDescending()
         tela.ano.opcoes(anos.map(Int::toString))

@@ -1,19 +1,63 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#F7FAF7" android:fillViewport="true">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:text="Meu Bolso" android:textColor="#264B38" android:textSize="30sp" android:textStyle="bold" />
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/periodo" android:textSize="18sp" android:textColor="#243A2A" />
-        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/anterior" android:text="Período anterior" android:textAllCaps="false" />
-        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/seguinte" android:text="Próximo período" android:textAllCaps="false" />
-        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/alternar" android:text="Alternar mês e ano" android:textAllCaps="false" />
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/totais" android:textSize="18sp" android:textColor="#243A2A" />
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/cofrinho" android:textSize="18sp" android:textColor="#243A2A" />
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/vencimentos" android:textSize="18sp" android:textColor="#243A2A" />
-        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/nova" android:text="+ Movimentação" android:textAllCaps="false" />
-        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/historico" android:text="Histórico" android:textAllCaps="false" />
-        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/relatorios" android:text="Relatórios" android:textAllCaps="false" />
-        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/contas" android:text="Contas fixas" android:textAllCaps="false" />
-        <Button android:id="@+id/lembretes" android:layout_width="match_parent" android:layout_height="wrap_content"
-            android:text="Ativar lembretes de vencimento" android:textAllCaps="false" />
-        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/sair" android:text="Sair" android:textAllCaps="false" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:background="@color/mb_bg">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:background="@color/mb_header" android:padding="14dp">
+    <ImageView android:layout_width="42dp" android:layout_height="42dp" android:src="@mipmap/ic_meubolso" android:importantForAccessibility="no" />
+    <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:text="Meu Bolso" android:textSize="22sp" android:layout_weight="1" android:layout_marginStart="8dp" android:textColor="#FFFFFF" android:textStyle="bold" />
+    <TextView android:layout_width="wrap_content" android:layout_height="48dp" android:text="Tema" android:textSize="16sp" android:paddingHorizontal="10dp" android:gravity="center" android:textColor="#FFFFFF" android:background="?attr/selectableItemBackgroundBorderless" android:contentDescription="Escolher tema" android:id="@+id/tema" />
+    <TextView android:layout_width="wrap_content" android:layout_height="48dp" android:text="Sair" android:textSize="16sp" android:paddingHorizontal="10dp" android:gravity="center" android:textColor="#FFFFFF" android:background="?attr/selectableItemBackgroundBorderless" android:contentDescription="Sair do perfil" android:id="@+id/sair" />
+  </LinearLayout>
+  <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="18dp">
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1" android:gravity="center_horizontal" android:id="@+id/nova" android:focusable="true" android:contentDescription="Lançar" android:background="?attr/selectableItemBackground">
+          <ImageView android:layout_width="52dp" android:layout_height="52dp" android:padding="14dp" android:src="@drawable/atalho_nova" android:background="@drawable/mb_circulo" android:importantForAccessibility="no" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Lançar" android:textSize="13sp" android:gravity="center" android:textColor="@color/mb_ink" android:layout_marginTop="6dp" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1" android:gravity="center_horizontal" android:id="@+id/contas" android:focusable="true" android:contentDescription="Contas" android:background="?attr/selectableItemBackground">
+          <ImageView android:layout_width="52dp" android:layout_height="52dp" android:padding="14dp" android:src="@drawable/atalho_contas" android:background="@drawable/mb_circulo" android:importantForAccessibility="no" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Contas" android:textSize="13sp" android:gravity="center" android:textColor="@color/mb_ink" android:layout_marginTop="6dp" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1" android:gravity="center_horizontal" android:id="@+id/historico" android:focusable="true" android:contentDescription="Histórico" android:background="?attr/selectableItemBackground">
+          <ImageView android:layout_width="52dp" android:layout_height="52dp" android:padding="14dp" android:src="@drawable/atalho_historico" android:background="@drawable/mb_circulo" android:importantForAccessibility="no" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Histórico" android:textSize="13sp" android:gravity="center" android:textColor="@color/mb_ink" android:layout_marginTop="6dp" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1" android:gravity="center_horizontal" android:id="@+id/relatorios" android:focusable="true" android:contentDescription="Relatórios" android:background="?attr/selectableItemBackground">
+          <ImageView android:layout_width="52dp" android:layout_height="52dp" android:padding="14dp" android:src="@drawable/atalho_relatorios" android:background="@drawable/mb_circulo" android:importantForAccessibility="no" />
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Relatórios" android:textSize="13sp" android:gravity="center" android:textColor="@color/mb_ink" android:layout_marginTop="6dp" />
+        </LinearLayout>
+      </LinearLayout>
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+        <Button android:layout_width="52dp" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/anterior" android:text="‹" android:textAllCaps="false" style="@style/Widget.MaterialComponents.Button.TextButton" android:textColor="@color/mb_action" android:textSize="24sp" android:contentDescription="Período anterior" android:padding="0dp" />
+        <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/periodo" android:textSize="18sp" android:textColor="@color/mb_ink" android:layout_weight="1" android:gravity="center" android:textStyle="bold" />
+        <Button android:layout_width="52dp" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/seguinte" android:text="›" android:textAllCaps="false" style="@style/Widget.MaterialComponents.Button.TextButton" android:textColor="@color/mb_action" android:textSize="24sp" android:contentDescription="Próximo período" android:padding="0dp" />
+      </LinearLayout>
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bolso_cartao" android:padding="18dp" android:layout_marginBottom="12dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Saldo principal" android:textSize="14sp" android:textColor="@color/mb_muted" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textSize="32sp" android:textColor="@color/mb_ink" android:textStyle="bold" android:id="@+id/totais" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="" android:textSize="16sp" android:textColor="@color/mb_muted" android:layout_marginTop="6dp" android:id="@+id/previsto" />
+      </LinearLayout>
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bolso_cartao" android:padding="16dp" android:layout_marginBottom="12dp">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+          <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="14sp" android:textColor="@color/mb_ink" android:text="Receitas" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="18sp" android:textColor="@color/mb_ink" android:id="@+id/receitas" android:textStyle="bold" />
+          </LinearLayout>
+          <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1">
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="14sp" android:textColor="@color/mb_ink" android:text="Despesas pagas" />
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="18sp" android:textColor="@color/mb_ink" android:id="@+id/despesas" android:textStyle="bold" />
+          </LinearLayout>
+        </LinearLayout>
+      </LinearLayout>
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bolso_cartao" android:padding="16dp" android:layout_marginBottom="12dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="18sp" android:textColor="@color/mb_ink" android:text="Cofrinho" android:textStyle="bold" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/cofrinho" android:textSize="16sp" android:textColor="@color/mb_ink" android:layout_marginTop="8dp" />
+      </LinearLayout>
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bolso_cartao" android:padding="16dp" android:layout_marginBottom="12dp">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:textSize="18sp" android:textColor="@color/mb_ink" android:text="Contas em aberto" android:textStyle="bold" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/vencimentos" android:textSize="16sp" android:textColor="@color/mb_ink" android:layout_marginTop="8dp" />
+      </LinearLayout>
+      <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/alternar" android:text="Alternar mês e ano" android:textAllCaps="false" style="@style/Widget.MaterialComponents.Button.TextButton" android:textColor="@color/mb_action" />
+      <Button android:id="@+id/lembretes" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ativar lembretes de vencimento" android:textAllCaps="false" style="@style/Widget.MaterialComponents.Button.TextButton" android:textColor="@color/mb_action" />
     </LinearLayout>
-</ScrollView>
+  </ScrollView>
+  <com.google.android.material.bottomnavigation.BottomNavigationView android:id="@+id/abas" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/mb_paper" app:menu="@menu/abas_principais" app:labelVisibilityMode="labeled" />
+</LinearLayout>

@@ -1,9 +1,11 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="#F7FAF7" android:fillViewport="true">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:text="Criar perfil" android:textColor="#264B38" android:textSize="30sp" android:textStyle="bold" />
-        <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/nome" android:hint="Nome" android:inputType="textPersonName" />
-        <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/email" android:hint="E-mail" android:inputType="textEmailAddress" />
-        <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/senha" android:hint="Senha" android:inputType="textPassword" />
-        <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/salvar" android:text="Cadastrar" android:textAllCaps="false" />
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/mb_bg" android:fillViewport="true">
+  <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="18dp">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="16dp" android:text="Criar perfil" android:textColor="@color/mb_ink" android:textSize="28sp" android:textStyle="bold" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bolso_cartao" android:padding="16dp" android:layout_marginBottom="12dp">
+      <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/nome" android:hint="Nome" android:inputType="textPersonName" android:minHeight="52dp" />
+      <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/email" android:hint="E-mail" android:inputType="textEmailAddress" android:minHeight="52dp" />
+      <EditText android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/senha" android:hint="Senha" android:inputType="textPassword" android:minHeight="52dp" />
+      <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/salvar" android:text="Cadastrar" android:textAllCaps="false" />
     </LinearLayout>
+  </LinearLayout>
 </ScrollView>

@@ -1,20 +1,33 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
-    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:orientation="vertical">
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Relatórios" android:textSize="28sp" android:layout_marginTop="8dp" />
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ano" android:textSize="16sp" android:layout_marginTop="8dp" />
-        <Spinner android:id="@+id/ano" android:layout_width="match_parent" android:layout_height="48dp" />
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Período" android:textSize="16sp" android:layout_marginTop="8dp" />
-        <Spinner android:id="@+id/periodo" android:layout_width="match_parent" android:layout_height="48dp" />
-        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/vazio" android:text="Nenhum lançamento no período selecionado." android:textSize="16sp" android:layout_marginTop="8dp" />
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical">
+  <ScrollView android:layout_width="match_parent" android:layout_height="0dp" android:background="@color/mb_bg" android:layout_weight="1">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="18dp" android:orientation="vertical">
+      <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Relatórios" android:textSize="28sp" android:layout_marginTop="8dp" android:textColor="@color/mb_ink" android:textStyle="bold" android:layout_marginBottom="16dp" />
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical">
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1">
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ano" android:textSize="16sp" android:layout_marginTop="8dp" />
+          <Spinner android:id="@+id/ano" android:layout_width="match_parent" android:layout_height="48dp" />
+        </LinearLayout>
+        <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:orientation="vertical" android:layout_weight="1">
+          <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Período" android:textSize="16sp" android:layout_marginTop="8dp" />
+          <Spinner android:id="@+id/periodo" android:layout_width="match_parent" android:layout_height="48dp" />
+        </LinearLayout>
+      </LinearLayout>
+      <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/vazio" android:text="Nenhum lançamento no período selecionado." android:textSize="16sp" android:layout_marginTop="8dp" />
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bolso_cartao" android:padding="16dp" android:layout_marginBottom="12dp">
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/resumo" android:textSize="19sp" android:layout_marginTop="8dp" />
+      </LinearLayout>
+      <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bolso_cartao" android:padding="16dp" android:layout_marginBottom="12dp">
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Despesas por categoria" android:textSize="20sp" android:layout_marginTop="8dp" />
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/maior" android:textSize="16sp" android:layout_marginTop="8dp" />
         <com.github.mikephil.charting.charts.PieChart android:id="@+id/pizza" android:layout_width="match_parent" android:layout_height="230dp" android:importantForAccessibility="no" />
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/detalhes_categoria" android:textSize="16sp" android:layout_marginTop="8dp" />
-        <LinearLayout android:id="@+id/anual" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+      </LinearLayout>
+      <LinearLayout android:id="@+id/anual" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:background="@drawable/bolso_cartao" android:padding="16dp">
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Receitas e despesas por mês (R$)" android:textSize="20sp" android:layout_marginTop="8dp" />
         <com.github.mikephil.charting.charts.BarChart android:id="@+id/barras" android:layout_width="match_parent" android:layout_height="230dp" android:importantForAccessibility="no" />
         <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/detalhes_mes" android:textSize="16sp" android:layout_marginTop="8dp" />
-        </LinearLayout>
+      </LinearLayout>
     </LinearLayout>
-</ScrollView>
+  </ScrollView>
+  <com.google.android.material.bottomnavigation.BottomNavigationView android:id="@+id/abas" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/mb_paper" app:menu="@menu/abas_principais" app:labelVisibilityMode="labeled" />
+</LinearLayout>
