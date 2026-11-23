@@ -1,5 +1,6 @@
 package br.edu.unipe.meubolso.ui.contas
 
+import br.edu.unipe.meubolso.notificacoes.Lembretes
 import android.app.DatePickerDialog
 import android.os.Bundle
 import android.widget.ArrayAdapter
@@ -20,9 +21,18 @@ class DetalhesContaActivity : AppCompatActivity() {
     private val data = DateTimeFormatter.ofPattern("dd/MM/uuuu")
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
+        val perfilAviso = intent.getStringExtra("perfil_aviso")
+        if (app.perfil.isBlank() || (perfilAviso != null && perfilAviso != app.perfil)) {
+            finish()
+            return
+        }
         tela = TelaDetalhesContaBinding.inflate(layoutInflater)
         setContentView(tela.root)
         conta = app.dao.contas(app.perfil).find { it.id == intent.getStringExtra("id") }
+        if (intent.hasExtra("id") && intent.getStringExtra("id") != null && conta == null) {
+            finish()
+            return
+        }
         tela.categoria.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, Categoria.values().map { it.rotulo })
         conta?.let {
             tela.descricao.setText(it.descricao)
@@ -35,7 +45,10 @@ class DetalhesContaActivity : AppCompatActivity() {
         tela.pagar.setOnClickListener {
             val hoje = LocalDate.now()
             DatePickerDialog(this, { _, ano, m, dia ->
-                conta?.let { app.dao.pagar(it, mes.toString(), LocalDate.of(ano, m+1, dia)) }
+                conta?.let {
+                    app.dao.pagar(it, mes.toString(), LocalDate.of(ano, m+1, dia))
+                    Lembretes.retirar(this, it.id, mes.toString())
+                }
                 mostrar()
             }, hoje.year, hoje.monthValue-1, hoje.dayOfMonth).apply { datePicker.maxDate = System.currentTimeMillis() }.show()
         }
@@ -56,6 +69,8 @@ class DetalhesContaActivity : AppCompatActivity() {
         val nova = ContaFixa(anterior?.id ?: UUID.randomUUID().toString(), app.perfil, nome, valor,
             Categoria.values()[tela.categoria.selectedItemPosition].name, dia, anterior?.inicio ?: mes.toString())
         app.dao.salvarConta(nova, mes, anterior == null)
+        if (anterior != null && anterior.dia != dia) Lembretes.retirar(this, nova.id, mes.toString())
+        Lembretes.conferirAgora(this)
         finish()
     }
     private fun mostrar() {

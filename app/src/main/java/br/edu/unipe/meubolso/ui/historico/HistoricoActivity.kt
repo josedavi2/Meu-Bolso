@@ -86,6 +86,12 @@ class HistoricoActivity : AppCompatActivity() {
     }
 
     private fun acoes(item: Lancamento) {
+        val app = br.edu.unipe.meubolso.dados.MeuBolso.app
+        if (app.perfil.isNotEmpty() && app.dao.pagamentoVinculado(app.perfil, item.id)) {
+            AlertDialog.Builder(this).setMessage("Este lançamento é um pagamento. Para desfazê-lo, abra os detalhes da conta fixa.")
+                .setPositiveButton("OK", null).show()
+            return
+        }
         AlertDialog.Builder(this).setTitle(item.dados.descricao)
             .setItems(arrayOf("Editar", "Excluir")) { _, acao ->
                 if (acao == 0) {

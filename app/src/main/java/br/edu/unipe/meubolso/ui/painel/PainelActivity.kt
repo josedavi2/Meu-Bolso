@@ -1,5 +1,12 @@
 package br.edu.unipe.meubolso.ui.painel
 
+import android.Manifest
+import android.app.NotificationManager
+import android.content.pm.PackageManager
+import android.os.Build
+import androidx.core.view.isVisible
+import androidx.activity.result.contract.ActivityResultContracts
+import br.edu.unipe.meubolso.notificacoes.Lembretes
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -29,12 +36,31 @@ class PainelActivity : AppCompatActivity() {
         if (it != null) HistoricoSessao.atual.adicionar(it)
         atualizar()
     }
+    private val permissao = registerForActivityResult(ActivityResultContracts.RequestPermission()) { concedida ->
+        if (concedida) Lembretes.conferirAgora(this)
+        atualizarBotaoLembretes()
+    }
+    private fun atualizarBotaoLembretes() {
+        tela.lembretes.isVisible = !getSystemService(NotificationManager::class.java).areNotificationsEnabled() || Lembretes.canalBloqueado(this)
+    }
+
     override fun onCreate(state: Bundle?) {
         super.onCreate(state)
         state?.getString("mes")?.let { mes = YearMonth.parse(it) }
         anual = state?.getBoolean("anual") == true
         tela = TelaPainelBinding.inflate(layoutInflater)
         setContentView(tela.root)
+        Lembretes.agendar(this)
+        tela.lembretes.setOnClickListener {
+            val prefs = getSharedPreferences("avisos", MODE_PRIVATE)
+            if (Build.VERSION.SDK_INT >= 33 && checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED &&
+                (!prefs.getBoolean("pedido", false) || shouldShowRequestPermissionRationale(Manifest.permission.POST_NOTIFICATIONS))) {
+                prefs.edit().putBoolean("pedido", true).apply()
+                permissao.launch(Manifest.permission.POST_NOTIFICATIONS)
+            } else {
+                startActivity(Lembretes.ajustes(this))
+            }
+        }
         tela.anterior.setOnClickListener { mover(-1) }
         tela.seguinte.setOnClickListener { mover(1) }
         tela.alternar.setOnClickListener { anual = !anual; atualizar() }
@@ -44,10 +70,16 @@ class PainelActivity : AppCompatActivity() {
         tela.contas.setOnClickListener { startActivity(Intent(this, ContasFixasActivity::class.java).putExtra("mes", mes.toString())) }
         tela.sair.setOnClickListener {
             app.perfil = ""
+            getSystemService(NotificationManager::class.java).cancelAll()
             startActivity(Intent(this, LoginActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK))
         }
     }
-    override fun onResume() { super.onResume(); atualizar() }
+    override fun onResume() {
+        super.onResume()
+        atualizarBotaoLembretes()
+        atualizar()
+        Lembretes.conferirAgora(this)
+    }
     override fun onSaveInstanceState(state: Bundle) {
         super.onSaveInstanceState(state)
         state.putString("mes", mes.toString())

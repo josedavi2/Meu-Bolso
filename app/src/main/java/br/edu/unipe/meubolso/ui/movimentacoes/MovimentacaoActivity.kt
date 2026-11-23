@@ -12,7 +12,7 @@ import java.time.format.DateTimeFormatter
 class MovimentacaoActivity : AppCompatActivity() {
     private lateinit var tela: TelaMovimentacaoBinding
     private var data = LocalDate.now()
-    private val categorias = Categoria.values()
+    private val categorias by lazy { br.edu.unipe.meubolso.dados.MeuBolso.app.dao.categorias().map { Categoria.valueOf(it.id) } }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

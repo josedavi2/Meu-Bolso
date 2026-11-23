@@ -28,7 +28,7 @@ data class ContaFixa(@PrimaryKey val id: String, val perfil: String, val descric
     parentColumns = ["id"], childColumns = ["movimento"], onDelete = ForeignKey.SET_NULL)],
     indices = [Index(value = ["movimento"], unique = true)])
 data class Parcela(val conta: String, val mes: String, val vencimento: String, val valor: Long,
-    val categoria: String, val movimento: String? = null) {
+    val categoria: String, val movimento: String? = null, val ultimoAviso: String? = null) {
     fun status(hoje: LocalDate) = when {
         movimento != null -> "Pago"
         LocalDate.parse(vencimento) < hoje -> "Vencido"
@@ -38,6 +38,16 @@ data class Parcela(val conta: String, val mes: String, val vencimento: String, v
 
 @Dao
 abstract class Financas {
+    @Query("SELECT * FROM CategoriaLocal ORDER BY ordem") abstract fun categorias(): List<CategoriaLocal>
+
+    @Query("""SELECT p.* FROM Parcela p JOIN ContaFixa c ON c.id=p.conta
+        WHERE c.perfil=:perfil AND p.vencimento=:hoje AND p.movimento IS NULL
+        AND (p.ultimoAviso IS NULL OR p.ultimoAviso != :hoje)""")
+    abstract fun aAvisar(perfil: String, hoje: String): List<Parcela>
+
+    @Query("SELECT EXISTS(SELECT 1 FROM Parcela JOIN Movimento ON Movimento.id=Parcela.movimento WHERE Movimento.perfil=:perfil AND Movimento.id=:id)")
+    abstract fun pagamentoVinculado(perfil: String, id: String): Boolean
+
     @Insert(onConflict = OnConflictStrategy.IGNORE) abstract fun cadastrar(usuario: Usuario): Long
     @Query("SELECT * FROM Usuario WHERE email = :email") abstract fun usuario(email: String): Usuario?
     @Insert abstract fun inserir(movimento: Movimento)
@@ -74,7 +84,7 @@ abstract class Financas {
     }
 }
 
-@Database(entities = [Usuario::class, Movimento::class, ContaFixa::class, Parcela::class], version = 1)
+@Database(entities = [Usuario::class, Movimento::class, ContaFixa::class, Parcela::class, CategoriaLocal::class], version = 2)
 abstract class Banco : RoomDatabase() { abstract fun financas(): Financas }
 
 class MeuBolso : Application() {
@@ -82,7 +92,12 @@ class MeuBolso : Application() {
         super.onCreate()
         app = this
     }
-    val dao by lazy { Room.databaseBuilder(this, Banco::class.java, "financas.db").allowMainThreadQueries().build().financas() }
+    val banco by lazy {
+        Room.databaseBuilder(this, Banco::class.java, "financas.db")
+            .addMigrations(MIGRACAO_1_2).addCallback(CRIAR_CATALOGO)
+            .allowMainThreadQueries().build()
+    }
+    val dao get() = banco.financas()
     private val sessao by lazy { getSharedPreferences("sessao", MODE_PRIVATE) }
     var perfil: String
         get() = sessao.getString("perfil", "").orEmpty()

@@ -12,6 +12,8 @@
         <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/historico" android:text="Histórico" android:textAllCaps="false" />
         <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/relatorios" android:text="Relatórios" android:textAllCaps="false" />
         <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/contas" android:text="Contas fixas" android:textAllCaps="false" />
+        <Button android:id="@+id/lembretes" android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Ativar lembretes de vencimento" android:textAllCaps="false" />
         <Button android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:id="@+id/sair" android:text="Sair" android:textAllCaps="false" />
     </LinearLayout>
 </ScrollView>
