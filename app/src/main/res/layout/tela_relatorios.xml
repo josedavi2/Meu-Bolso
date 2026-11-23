@@ -1,5 +1,20 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <!-- José Davi implementa o layout de relatórios aqui. -->
-</FrameLayout>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="16dp" android:orientation="vertical">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Relatórios" android:textSize="28sp" android:layout_marginTop="8dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Ano" android:textSize="16sp" android:layout_marginTop="8dp" />
+        <Spinner android:id="@+id/ano" android:layout_width="match_parent" android:layout_height="48dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Período" android:textSize="16sp" android:layout_marginTop="8dp" />
+        <Spinner android:id="@+id/periodo" android:layout_width="match_parent" android:layout_height="48dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/vazio" android:text="Nenhum lançamento no período selecionado." android:textSize="16sp" android:layout_marginTop="8dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/resumo" android:textSize="19sp" android:layout_marginTop="8dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Despesas por categoria" android:textSize="20sp" android:layout_marginTop="8dp" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/maior" android:textSize="16sp" android:layout_marginTop="8dp" />
+        <com.github.mikephil.charting.charts.PieChart android:id="@+id/pizza" android:layout_width="match_parent" android:layout_height="230dp" android:importantForAccessibility="no" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/detalhes_categoria" android:textSize="16sp" android:layout_marginTop="8dp" />
+        <LinearLayout android:id="@+id/anual" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Receitas e despesas por mês (R$)" android:textSize="20sp" android:layout_marginTop="8dp" />
+        <com.github.mikephil.charting.charts.BarChart android:id="@+id/barras" android:layout_width="match_parent" android:layout_height="230dp" android:importantForAccessibility="no" />
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:id="@+id/detalhes_mes" android:textSize="16sp" android:layout_marginTop="8dp" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

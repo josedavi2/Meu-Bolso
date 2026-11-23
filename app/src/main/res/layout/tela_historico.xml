@@ -1,5 +1,15 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <!-- José Davi implementa o layout de histórico aqui. -->
-</FrameLayout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent" android:orientation="vertical" android:padding="16dp">
+    <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="Histórico" android:textSize="26sp" android:textStyle="bold" />
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <Spinner android:id="@+id/tipo" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:contentDescription="Filtrar por tipo"/>
+        <Spinner android:id="@+id/categoria" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:contentDescription="Filtrar por categoria"/>
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+        <Spinner android:id="@+id/mes" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:contentDescription="Filtrar por mes"/>
+        <Spinner android:id="@+id/ano" android:layout_width="0dp" android:layout_weight="1" android:layout_height="48dp" android:contentDescription="Filtrar por ano"/>
+    </LinearLayout>
+    <TextView android:id="@+id/vazio" android:layout_width="match_parent" android:layout_height="wrap_content" />
+    <androidx.recyclerview.widget.RecyclerView android:id="@+id/lista" android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1" />
+    <Button android:id="@+id/nova" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/nova_movimentacao" />
+</LinearLayout>
