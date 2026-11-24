@@ -67,4 +67,4 @@ O **APK de depuração** fica em `app/build/outputs/apk/debug/app-debug.apk`. O 
 | **José Davi Maurício Oliveira** | Cadastro e edição de movimentações, categorias e ícones, histórico e filtros, relatórios e gráficos. |
 | **Dupla** | Modelo de dados e integração com o Room, confirmação de pagamentos, lembretes locais, testes e apresentação. |
 
-[Plano de projeto (PDF)](docs/plano-de-projeto.pdf) · [Roteiro de demonstração da dupla](docs/demonstracao-da-dupla.md)
+[Plano de projeto (PDF)](docs/plano-de-projeto.pdf)
